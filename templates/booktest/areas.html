@@ -23,6 +23,7 @@
             //绑定prov下来选择框的change事件，获取省下市的信息
             $('#prov').change(function () {
                 prov_id = $(this).val();
+                // request.GET['prov_id']
                 $.get('/city?prov_id=' + prov_id, function (data) {
                     res = data.data;
                     // 清空下拉选择框
@@ -40,6 +41,7 @@
             //绑定city下来选择框的change事件，获取市下区的信息
             $('#city').change(function () {
                 city_id = $(this).val();
+                // urls.py正则传参
                 $.get('/dis' + city_id, function (data) {
                     res = data.data;
                     $('#dis').empty().append('<option>--请选择区--</option>');
